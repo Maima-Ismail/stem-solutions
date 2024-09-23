@@ -8,28 +8,28 @@ const useStyles = makeStyles({ uniqId: 'cards' })((theme, _params, classes) => (
   defaultCard: {
     direction: 'ltr',
     borderRadius: 12,
-    width: 240,
-    height: 350,
-    padding: theme.spacing(3, 2),
+    width: 380,
+    height: '100%',
+    padding: theme.spacing(3, 3),
     margin: theme.spacing(3, 1),
     '& figure': {
       borderRadius: 12,
-      boxShadow: '0 1.5px 12px 6px rgba(0, 0, 0, 0.12)',
-      overflow: 'hidden',
-      height: 125,
-      margin: theme.spacing(-5, 0, 2),
+      height: 250,
+      margin: 0,
       '& img': {
-        height: '100%',
-        minWidth: '100%'
+        borderRadius: 10,
+        width: '100%',
+        height: 250,
+        objectFit: 'cover'
       }
     },
     '& h6': {
-      marginBottom: theme.spacing(2),
+      fontWeight: 'bold',
+      margin: theme.spacing(2, 0, 0, 0),
     },
     '& p': {
-      height: 90,
-      overflow: 'hidden',
-      marginBottom: theme.spacing(3),
+      color: '#676767',
+      marginBottom: theme.spacing(2),
     },
   },
   button: {

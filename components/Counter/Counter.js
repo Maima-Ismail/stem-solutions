@@ -14,7 +14,7 @@ function Counter() {
     <div className={classes.counterWrap}>
       <Container fixed>
         <Grid container justify-content="center" alignItems="center" spacing={6}>
-          <Grid md={4} item>
+          <Grid xs={4} item>
             <div className={classes.counterItem}>
               <div className={classes.text}>
                 <Typography variant="h3" className={text.title}>
@@ -26,7 +26,7 @@ function Counter() {
               </div>
             </div>
           </Grid>
-          <Grid md={4} item>
+          <Grid xs={4} item>
             <div className={classes.counterItem}>
               <div className={classes.text}>
                 <Typography variant="h3" className={text.title}>
@@ -38,7 +38,7 @@ function Counter() {
               </div>
             </div>
           </Grid>
-          <Grid md={4} item>
+          <Grid xs={4} item>
             <div className={classes.counterItem}>
               <div className={classes.text}>
                 <Typography variant="h3" className={text.title}>

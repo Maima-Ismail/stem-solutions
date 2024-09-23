@@ -26,7 +26,7 @@ export default function Square() {
       <ParallaxProvider>
         <div className={cx(classes.about, classes.innerParallax)}>
           <Parallax
-            translateY={[-50, 10]}
+            translateY={[-10, 10]}
             className="figure"
           >
             <div
@@ -39,7 +39,7 @@ export default function Square() {
             />
           </Parallax>
           <Parallax
-            translateY={[-40, 10]}
+            translateY={[-20, 10]}
             className="figure"
           >
             <div

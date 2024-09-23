@@ -5,17 +5,20 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'next-i18next';
-import { useText } from 'theme/common';
+import { useText, useTextAlign } from 'theme/common';
+import AboutImage from '../../public/images/banner.jpg';
 import TitleDeco from '../Title/WithDecoration';
 import useStyles from './about-style';
 import useTitle from '../Title/title-style';
 import Counter from '../Counter';
 
 function About() {
-  // Theme breakpoints
-  const theme = useTheme();
   const { classes: text } = useText();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const { classes: align } = useTextAlign();
+
+  // Media Query
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   // Translation function
   const { t } = useTranslation('common');
@@ -25,23 +28,10 @@ function About() {
   return (
     <div className={classes.root}>
       <Container fixed>
-        <Grid container spacing={6}>
+        <Grid container spacing={isDesktop ? 6 : 2}>
           <Grid item md={5} xs={12}>
-            <div>
-              <TitleDeco text={t('agency-landing.about_title')} />
-              {isDesktop && (
-                <div className={classes.puzzle}>
-                  <div className={classes.pieceBig}>
-                    <span />
-                  </div>
-                  <div className={classes.pieceSmallTop}>
-                    <span />
-                  </div>
-                  <div className={classes.pieceSmallBottom}>
-                    <span />
-                  </div>
-                </div>
-              )}
+            <div className={align.textCenter}>
+              <TitleDeco bg={AboutImage} text={t('agency-landing.about_title')} />
             </div>
           </Grid>
           <Grid item md={7} xs={12}>
@@ -49,9 +39,6 @@ function About() {
               {t('agency-landing.about_subtitle')}
             </Typography>
             <Counter />
-            <blockquote>
-              {t('agency-landing.about_quote')}
-            </blockquote>
           </Grid>
         </Grid>
       </Container>

@@ -15,7 +15,7 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     },
     [theme.breakpoints.down('md')]: {
       marginBottom: 0,
-      paddingBottom: theme.spacing(15)
+      paddingBottom: theme.spacing(6)
     },
   },
   bannerText: {
@@ -37,12 +37,15 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     }
   },
   title: {
+    fontSize: 24,
+    fontWeight: 800,
+    width: '80%',
     marginTop: theme.spacing(15),
     marginBottom: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(15),
     },
-    '& h3': {
+    '& h5': {
       fontFamily: 'Roboto Condensed',
     }
   },
@@ -82,29 +85,32 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     top: 0,
     left: 0,
     margin: 0,
-    height: '100%',
-    background: theme.palette.common.black,
+    height: '40rem',
+    background: theme.palette.common.white,
     '& img': {
       minWidth: '100%',
-      height: '100%',
-      opacity: 0.5
+      height: '40rem',
+      // opacity: 0.5
     }
   },
   videoWrap: {
-    position: 'relative'
+    position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   videoFigure: {
     borderRadius: 80,
+    opacity: 0.8,
     background: theme.palette.primary.main,
     overflow: 'hidden',
     position: 'absolute',
     width: 1040,
     height: 840,
-    top: 0,
-    left: 0,
+
     boxShadow: `-30px 20px 0px 0px ${theme.palette.primary.main}`,
     [theme.breakpoints.up('sm')]: {
-      top: -920,
+      top: -1005,
       left: -110,
       transform: theme.direction === 'rtl' ? 'rotate(75deg)' : 'rotate(-75deg)',
     },
@@ -120,8 +126,8 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     position: 'absolute',
     top: 0,
     left: 0,
-    background: theme.palette.common.black,
-    opacity: 0.6,
+    background: theme.palette.common.white,
+    opacity: 0.8,
     width: '100%',
     height: '100%',
     zIndex: 10
@@ -132,7 +138,7 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     height: '100%',
     position: 'relative',
     [theme.breakpoints.up('sm')]: {
-      top: -140,
+      top: -60,
       left: 400,
       transform: theme.direction === 'rtl' ? 'rotate(-75deg)' : 'rotate(75deg)',
       transformOrigin: 'top left',
@@ -150,7 +156,7 @@ const useStyles = makeStyles({ uniqId: 'banner' })((theme, _params, classes) => 
     [`& .${classes.video}`]: {
       display: 'block',
       width: '100%',
-      top: 98,
+      top: 0,
       position: 'fixed',
       left: 30,
       '& iframe': {

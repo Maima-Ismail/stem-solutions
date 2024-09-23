@@ -12,7 +12,7 @@ const useStyles = makeStyles({ uniqId: 'services' })((theme, _params, classes) =
   },
   title: {},
   carouselHandle: {
-    height: 380,
+    height: 500,
     position: 'relative',
     zIndex: 10
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles({ uniqId: 'services' })((theme, _params, classes) =
   floatingTitle: {
     position: 'absolute',
     width: '100%',
-    left: 0,
+    left: 200,
     top: theme.spacing(5),
     [theme.breakpoints.up('lg')]: {
       left: theme.spacing(3),
@@ -46,6 +46,9 @@ const useStyles = makeStyles({ uniqId: 'services' })((theme, _params, classes) =
     },
     [theme.breakpoints.up(1400)]: {
       left: theme.spacing(10),
+    },
+    [theme.breakpoints.down('lg')]: {
+      left: 0,
     },
     [`& .${classes.title}`]: {
       [theme.breakpoints.up('md')]: {
@@ -61,7 +64,7 @@ const useStyles = makeStyles({ uniqId: 'services' })((theme, _params, classes) =
   },
   arrow: {
     direction: theme.direction === 'rtl' ? 'rtl' : 'ltr',
-    marginTop: theme.direction === 'rtl' ? 160 : 140,
+    marginTop: theme.direction === 'rtl' ? 160 : 200,
     right: theme.direction === 'rtl' ? 160 : 0,
     position: 'relative',
     zIndex: 10,

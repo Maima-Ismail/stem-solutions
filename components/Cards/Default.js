@@ -22,7 +22,7 @@ function Services(props) {
         <Typography display="block" variant="h6">{title}</Typography>
         <Typography component="p">{desc}</Typography>
       </div>
-      <Button variant="outlined" fullWidth color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button}>
         {button}
       </Button>
     </Paper>

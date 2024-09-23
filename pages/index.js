@@ -16,7 +16,6 @@ import SquareParallax from 'components/Parallax/Square';
 import About from 'components/About';
 import Services from 'components/Services';
 import Testimonials from 'components/Testimonials';
-import Expertise from 'components/Expertise';
 import CaseStudies from 'components/CaseStudies';
 import CallAction from 'components/CallAction';
 import MapAddress from 'components/MapAddress';
@@ -77,7 +76,7 @@ function Landing(props) {
     <React.Fragment>
       <Head>
         <title>
-          { brand.agency.name + ' - Home Page' }
+          {brand.agency.name + ' - Home Page'}
         </title>
       </Head>
       <CssBaseline />
@@ -91,14 +90,11 @@ function Landing(props) {
             <section id="home">
               <VideoBanner />
             </section>
-            <section className={isTablet ? classes.spaceTopShort : classes.spaceTop} id="about">
+            <section className={classes.spaceTopShort} id="about">
               <About />
             </section>
             <section className={classes.spaceTop} id="services">
               <Services />
-            </section>
-            <section className={isTablet ? classes.spaceTopShort : classes.spaceTop} id="our-expertise">
-              <Expertise />
             </section>
             <section className={isMobile ? classes.spaceTopShort : classes.spaceTop} id="testimonials">
               <Testimonials />

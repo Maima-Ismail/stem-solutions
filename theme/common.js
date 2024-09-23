@@ -28,7 +28,7 @@ export const useText = makeStyles({ uniqId: 'text' })((theme) => ({
   title: {
     fontWeight: theme.typography.fontWeightBold,
     fontSize: 48,
-    lineHeight: '72px',
+    lineHeight: '65px',
     [theme.breakpoints.down('lg')]: {
       fontSize: 38,
       lineHeight: '60px'
@@ -54,7 +54,7 @@ export const useText = makeStyles({ uniqId: 'text' })((theme) => ({
   subtitle: {
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: 28,
-    lineHeight: '44px',
+    lineHeight: '40px',
     [theme.breakpoints.down('lg')]: {
       fontSize: 24,
       lineHeight: '36px',

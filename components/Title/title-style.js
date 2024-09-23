@@ -47,23 +47,23 @@ const titleStyles = makeStyles({ uniqId: 'title' })((theme, _params, classes) =>
     '& h3': {
       fontFamily: 'Roboto Condensed',
       color: theme.palette.common.white,
-      width: 120,
+      width: 150,
       position: 'relative',
       textTransform: 'capitalize',
       fontSize: 48,
       fontWeight: 700,
       lineHeight: '62px',
       [theme.breakpoints.up('lg')]: {
-        height: 160,
-        marginLeft: theme.spacing(3),
+        height: 260,
+        marginLeft: theme.spacing(2),
         paddingLeft: 20,
       },
       [theme.breakpoints.up('md')]: {
-        paddingTop: 40,
+        paddingTop: 80,
         marginTop: theme.spacing(10),
       },
       [theme.breakpoints.only('md')]: {
-        marginLeft: theme.spacing(7)
+        marginLeft: theme.spacing(2)
       },
       [theme.breakpoints.down('lg')]: {
         fontSize: 38,
@@ -71,6 +71,7 @@ const titleStyles = makeStyles({ uniqId: 'title' })((theme, _params, classes) =>
       },
       [theme.breakpoints.down('md')]: {
         paddingLeft: 0,
+        paddingBottom: 20,
         color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
         width: 'auto',
         textAlign: 'center',
@@ -101,8 +102,8 @@ const titleStyles = makeStyles({ uniqId: 'title' })((theme, _params, classes) =>
     },
     '&:before': {
       content: '""',
-      width: 480,
-      height: 480,
+      width: 580,
+      height: 580,
       background: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.background.paper,
       borderRadius: 24,
       transform: 'rotate(45deg)',
@@ -144,7 +145,7 @@ const titleStyles = makeStyles({ uniqId: 'title' })((theme, _params, classes) =>
     fontSize: '100px !important',
     color: theme.palette.secondary.light,
     display: 'block',
-    margin: theme.spacing(20, 0, 3),
+    margin: theme.spacing(28, 0, 3),
     [theme.breakpoints.down('lg')]: {
       display: 'none !important'
     }
