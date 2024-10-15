@@ -1,14 +1,17 @@
-import React, { useRef, useEffect } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import Container from '@mui/material/Container';
+import React, { useRef, useEffect, useState } from 'react';
+// import useMediaQuery from '@mui/material/useMediaQuery';
+import ScrollAnimation from 'react-scroll-animation-wrapper';
+// import { useTheme } from '@mui/material/styles';
 import Carousel from 'react-slick';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 import { useTranslation } from 'next-i18next';
-import TestimonialCard from '../Cards/Testimonial';
-import TitleIcon from '../Title/WithIcon';
-import CompanyLogo from '../CompanyLogo';
-import SquareParallax from '../Parallax/SingleSquare';
 import imgAPI from 'public/images/imgAPI';
+// import TestimonialCard from '../Cards/Testimonial';
+import TitleIcon from '../Title/WithIcon';
+// import CompanyLogo from '../CompanyLogo';
+import SquareParallax from '../Parallax/SingleSquare';
 import useStyle from './testi-style';
 
 const testiContent = [
@@ -79,80 +82,108 @@ const testiContent = [
 
 function Testimonials() {
   // Theme breakpoints
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  // const theme = useTheme();
+  // const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const { classes } = useStyle();
-
-  // Carousel Setting
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    arrows: false,
-    slidesToScroll: 1,
-    variableWidth: true,
-    responsive: [{
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true
-      }
-    }, {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-      }
-    }, {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-      }
-    }]
-  };
 
   // Translation function
   const { t } = useTranslation('common');
 
   // Carousel
-  const slider = useRef(null);
+  const sliderText = useRef(null);
+  const sliderAvatar = useRef(null);
+  const [slider, setSlider] = useState({
+    nav1: null,
+    nav2: null
+  });
   useEffect(() => {
-    if (theme.direction === 'ltr' && window.innerWidth > 1279) {
-      const limit = window.innerWidth > 1400 ? 3 : 2;
-      const lastSlide = Math.floor(testiContent.length - limit);
-      slider.current.slickGoTo(lastSlide);
-    }
+    setSlider({
+      nav1: sliderText.current,
+      nav2: sliderAvatar.current
+    });
   }, []);
+
+  const settingsText = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    arrows: false,
+  };
+
+  const settingsAvatar = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    focusOnSelect: true,
+    autoplay: true,
+    centerPadding: '2px',
+    centerMode: true,
+    autoplaySpeed: 5000,
+    slidesToShow: 7,
+    pauseOnHover: false,
+    arrows: false,
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    }]
+  };
 
   return (
     <div className={classes.root}>
       <SquareParallax />
-      <div className={classes.carousel}>
-        <Carousel ref={slider} {...settings}>
-          {isDesktop && (
-            <div className={classes.item}>
-              <div className={classes.itemPropsFirst} />
+      {/* <ScrollAnimation
+        animateOnce
+        animateIn="fadeInUpShort"
+        offset={-50}
+        delay={300}
+        duration={0.5}
+      >
+        <div>
+          <TitleIcon text={t('agency-landing.testimonial_title')} icon="app" extended />
+        </div>
+      </ScrollAnimation> */}
+      <div className={classes.carouselWrap}>
+        <ScrollAnimation
+          animateOnce
+          animateIn="fadeInUpShort"
+          offset={-150}
+          delay={400}
+          duration={0.5}
+        >
+          <div>
+            <Container maxWidth="sm">
+              <div className={classes.carouselText}>
+                <Carousel ref={sliderText} asNavFor={slider.nav2} {...settingsText}>
+                  {testiContent.map((item, index) => (
+                    <div className={classes.item} key={index.toString()}>
+                      <Typography className={classes.content}>
+                        {item.text}
+                      </Typography>
+                      <Typography className={classes.name}>
+                        <strong>{item.name}</strong>
+                        &nbsp;-&nbsp;
+                        {item.title}
+                      </Typography>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </Container>
+            <div className={classes.carouselAvatar}>
+              <Carousel ref={sliderAvatar} asNavFor={slider.nav1} {...settingsAvatar}>
+                {testiContent.map((item, index) => (
+                  <div className={classes.item} key={index.toString()}>
+                    <Avatar alt={item.name} src={item.avatar} className={classes.avatar} />
+                  </div>
+                ))}
+              </Carousel>
             </div>
-          )}
-          {testiContent.map((item, index) => (
-            <div key={index.toString()} className={classes.item}>
-              <TestimonialCard
-                avatar={item.avatar}
-                title={item.title}
-                name={item.name}
-                text={item.text}
-                star={item.rating}
-              />
-            </div>
-          ))}
-          {isDesktop && (
-            <div className={classes.item}>
-              <div className={classes.itemPropsLast} />
-            </div>
-          )}
-        </Carousel>
+          </div>
+        </ScrollAnimation>
       </div>
       <div className={classes.floatingTitle}>
         <Container fixed>
@@ -161,7 +192,6 @@ function Testimonials() {
           </div>
         </Container>
       </div>
-      <CompanyLogo />
     </div>
   );
 }

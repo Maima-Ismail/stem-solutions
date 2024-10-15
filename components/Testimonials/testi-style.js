@@ -7,8 +7,23 @@ const testiStyles = makeStyles({ uniqId: 'testimonial' })((theme, _params, class
     background: theme.palette.mode === 'dark' ? darken(theme.palette.primary.light, 0.8) : lighten(theme.palette.primary.light, 0.8),
     position: 'relative',
     padding: theme.spacing(10, 0),
+    minHeight: 800,
     [theme.breakpoints.down('lg')]: {
+      minHeight: 600,
       paddingTop: theme.spacing(15),
+    },
+    paddingTop: theme.spacing(20)
+  },
+  carouselWrap: {
+    position: 'relative',
+    zIndex: 1,
+    textAlign: 'center'
+  },
+  content: {
+    fontStyle: 'italic',
+    fontSize: 18,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 16
     }
   },
   carousel: {
@@ -35,13 +50,60 @@ const testiStyles = makeStyles({ uniqId: 'testimonial' })((theme, _params, class
       }
     }
   },
+  name: {
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
+    margin: theme.spacing(2, 0, 4),
+    '& strong': {
+      fontWeight: theme.typography.fontWeightBold
+    }
+  },
+  carouselText: {
+    [`& .${classes.item}`]: {
+      position: 'relative'
+    }
+  },
+  carouselAvatar: {
+    margin: '0 auto',
+    [theme.breakpoints.up('sm')]: {
+      width: 768,
+    },
+    [`& .${classes.item}`]: {
+      cursor: 'pointer',
+      height: 140,
+      paddingTop: theme.spacing(2)
+    },
+    '& div[class*="slick-center"]': {
+      [`& .${classes.avatar}`]: {
+        opacity: 1,
+        transform: 'scale(1.4)'
+      }
+    }
+  },
+  avatar: {
+    border: '4px solid white',
+    width: 80,
+    height: 80,
+    margin: '0 auto',
+    opacity: 0.7,
+    transition: 'all 0.3s ease'
+  },
   item: {
     padding: theme.spacing(2),
     '&:focus': {
       outline: 'none'
     }
   },
-  title: {},
+  title: {
+    '& h3': {
+      left: 150,
+      [theme.breakpoints.down('xl')]: {
+        left: 150,
+      },
+      [theme.breakpoints.down('lg')]: {
+        left: 0,
+      },
+    },
+  },
   floatingTitle: {
     position: 'absolute',
     width: '100%',
