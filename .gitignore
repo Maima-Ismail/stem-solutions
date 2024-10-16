@@ -1,0 +1,9 @@
+.vercel
+
+# dependencies
+node_modules
+
+# local environment variables
+.env
+
+.next
