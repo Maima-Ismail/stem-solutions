@@ -19,7 +19,7 @@ const categories = [
   'Centrefy-Healthcare Technology',
   'The Zensory-Wellness & Mindfulness',
   'NeuroPlan-The Brain Docs',
-  'Xperience'
+  'Xperience',
 ];
 
 const projectData = {
@@ -113,7 +113,7 @@ const projectData = {
       size: 'big',
     },
   ],
-  'Xperience': [
+  Xperience: [
     {
       bg: '/images/projects/project41.png',
       size: 'small',
@@ -159,8 +159,12 @@ function CaseStudies() {
 
   const { classes, cx } = useStyles();
   const { classes: title } = useTitle();
-  const [selectedIndex, setSelectedIndex] = useState('Centrefy-Healthcare Technology');
-  const [currentProjects, setCurrentProjects] = useState(projectData[selectedIndex]);
+  const [selectedIndex, setSelectedIndex] = useState(
+    'Centrefy-Healthcare Technology'
+  );
+  const [currentProjects, setCurrentProjects] = useState(
+    projectData[selectedIndex]
+  );
 
   function handleListItemClick(event, index) {
     console.log(index);
@@ -169,11 +173,15 @@ function CaseStudies() {
   }
 
   function onMovePrevRequest() {
-    setPhotoIndex((photoIndex + currentProjects.length - 1) % currentProjects.length);
+    setPhotoIndex(
+      (photoIndex + currentProjects.length - 1) % currentProjects.length
+    );
   }
 
   function onMoveNextRequest() {
-    setPhotoIndex((photoIndex + currentProjects.length + 1) % currentProjects.length);
+    setPhotoIndex(
+      (photoIndex + currentProjects.length + 1) % currentProjects.length
+    );
   }
 
   function showPopup(index) {
@@ -195,9 +203,17 @@ function CaseStudies() {
     <div className={classes.root}>
       {open && (
         <Lightbox
-          mainSrc={currentProjects[photoIndex].bg || currentProjects[photoIndex].logo}
-          nextSrc={currentProjects[(photoIndex + 1) % currentProjects.length].bg || currentProjects[(photoIndex + 1) % currentProjects.length].logo}
-          prevSrc={currentProjects[(photoIndex + 1) % currentProjects.length].logo || null}
+          mainSrc={
+            currentProjects[photoIndex].bg || currentProjects[photoIndex].logo
+          }
+          nextSrc={
+            currentProjects[(photoIndex + 1) % currentProjects.length].bg ||
+            currentProjects[(photoIndex + 1) % currentProjects.length].logo
+          }
+          prevSrc={
+            currentProjects[(photoIndex + 1) % currentProjects.length].logo ||
+            null
+          }
           onCloseRequest={() => setOpen(false)}
           onMovePrevRequest={onMovePrevRequest}
           onMoveNextRequest={onMoveNextRequest}
@@ -222,8 +238,11 @@ function CaseStudies() {
                     <ListItem
                       button
                       key={index.toString()}
-                      className={cx(classes.filter, selectedIndex === item && classes.active)}
-                      onClick={event => handleListItemClick(event, item)}
+                      className={cx(
+                        classes.filter,
+                        selectedIndex === item && classes.active
+                      )}
+                      onClick={(event) => handleListItemClick(event, item)}
                     >
                       <ListItemText primary={item} />
                     </ListItem>
@@ -243,7 +262,7 @@ function CaseStudies() {
                     delay={200}
                     duration={0.4}
                   >
-                    <div>
+                    <div style={{ height: '100%', width: '100%' }}>
                       {currentProjects.map((item, index) => {
                         if (item.size === 'small') {
                           return renderCard(item, index);
