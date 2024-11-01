@@ -16,10 +16,10 @@ import useStyles from './case-study-style';
 import useTitle from '../Title/title-style';
 
 const categories = [
-  'Centrefy-Healthcare Technology',
-  'The Zensory-Wellness & Mindfulness',
   'NeuroPlan-The Brain Docs',
+  'The Zensory-Wellness & Mindfulness',
   'Xperience',
+  'Centrefy-Healthcare Technology',
 ];
 
 const projectData = {
@@ -160,7 +160,7 @@ function CaseStudies() {
   const { classes, cx } = useStyles();
   const { classes: title } = useTitle();
   const [selectedIndex, setSelectedIndex] = useState(
-    'Centrefy-Healthcare Technology'
+    'NeuroPlan-The Brain Docs'
   );
   const [currentProjects, setCurrentProjects] = useState(
     projectData[selectedIndex]
