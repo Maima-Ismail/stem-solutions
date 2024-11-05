@@ -105,9 +105,6 @@ function Landing(props) {
             <section className={classes.spaceTopShort} id="call-to-action">
               <CallAction />
             </section>
-            <section className={classes.spaceTopShort} id="address">
-              <MapAddress />
-            </section>
           </main>
           {!isTablet && (
             <PageNav />
