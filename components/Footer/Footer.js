@@ -1,23 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import IconButton from '@mui/material/IconButton';
-import { useTranslation } from 'next-i18next';
-import logo from 'public/images/agency-logo.svg';
-import brand from 'public/text/brand';
-import { useTextAlign } from 'theme/common';
-import useStyles from './footer-style';
-import SelectLang from '../LangSwitch/Select';
+/* eslint-disable quotes */
+import React from "react";
+import PropTypes from "prop-types";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import IconButton from "@mui/material/IconButton";
+import { useTranslation } from "next-i18next";
+import logo from "public/logo.png";
+import brand from "public/text/brand";
+import { useTextAlign } from "theme/common";
+import useStyles from "./footer-style";
+import SelectLang from "../LangSwitch/Select";
 
 function Copyright() {
   return (
@@ -30,19 +31,29 @@ function Copyright() {
 
 const footers = [
   {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-    link: ['#team', '#history', '#contact-us', '#locations'],
+    title: "Company",
+    description: ["Team", "History", "Contact us", "Locations"],
+    link: ["#team", "#history", "#contact-us", "#locations"],
   },
   {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-    link: ['#resource', '#resource-name', '#another-resource', '#final-resource'],
+    title: "Resources",
+    description: [
+      "Resource",
+      "Resource name",
+      "Another resource",
+      "Final resource",
+    ],
+    link: [
+      "#resource",
+      "#resource-name",
+      "#another-resource",
+      "#final-resource",
+    ],
   },
   {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-    link: ['#privacy-policy', '#terms-of-use'],
+    title: "Legal",
+    description: ["Privacy policy", "Terms of use"],
+    link: ["#privacy-policy", "#terms-of-use"],
   },
 ];
 
@@ -50,11 +61,11 @@ function Footer(props) {
   const { toggleDir } = props;
   // Theme breakpoints
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   // Translation Function
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   const { classes } = useStyles();
   const { classes: align } = useTextAlign();
@@ -64,29 +75,51 @@ function Footer(props) {
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
           <div className={classes.logo}>
-            <img src={logo} alt="logo" />
-            <Typography variant="h6" color="textPrimary">
-              {brand.agency.projectName}
-            </Typography>
+            <img
+              src={logo}
+              alt="logo"
+              style={{
+                width: "120px",
+              }}
+            />
           </div>
-          <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-            {t('agency-landing.footer_paragraph')}
+          <Typography
+            color="textPrimary"
+            className={classes.footerDesc}
+            gutterBottom
+          >
+            {t("agency-landing.footer_paragraph")}
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid container spacing={4} justify-content="space-evenly">
-            {footers.map(footer => (
-              <Grid item xs={12} md={3} key={footer.title} className={classes.siteMapItem}>
+            {footers.map((footer) => (
+              <Grid
+                item
+                xs={12}
+                md={3}
+                key={footer.title}
+                className={classes.siteMapItem}
+              >
                 {isDesktop && (
                   <div>
-                    <Typography variant="h6" className={classes.title} color="textPrimary" gutterBottom>
+                    <Typography
+                      variant="h6"
+                      className={classes.title}
+                      color="textPrimary"
+                      gutterBottom
+                    >
                       {footer.title}
                     </Typography>
                     <ul>
                       {footer.description.map((item, index) => (
                         <li key={item}>
-                          <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
+                          <Link
+                            href={footer.link[index]}
+                            variant="subtitle1"
+                            color="textSecondary"
+                          >
                             {item}
                           </Link>
                         </li>
@@ -102,22 +135,26 @@ function Footer(props) {
                     }}
                   >
                     <AccordionSummary
-                      expandIcon={<ExpandMoreIcon className={classes.accordionIcon} />}
+                      expandIcon={
+                        <ExpandMoreIcon className={classes.accordionIcon} />
+                      }
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                       classes={{
                         content: classes.accordionContent,
                       }}
                     >
-                      <strong>
-                        {footer.title}
-                      </strong>
+                      <strong>{footer.title}</strong>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
                         {footer.description.map((item, index) => (
                           <li key={item}>
-                            <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
+                            <Link
+                              href={footer.link[index]}
+                              variant="subtitle1"
+                              color="textSecondary"
+                            >
                               {item}
                             </Link>
                           </li>

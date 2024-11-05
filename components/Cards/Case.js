@@ -1,17 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ButtonBase from '@mui/material/ButtonBase';
-import Typography from '@mui/material/Typography';
-import useStyles from './cards-style';
+/* eslint-disable quotes */
+import React from "react";
+import PropTypes from "prop-types";
+import ButtonBase from "@mui/material/ButtonBase";
+import Typography from "@mui/material/Typography";
+import useStyles from "./cards-style";
 
 function Case(props) {
   const { classes, cx } = useStyles();
   const { bg, title, desc, size, simple, openPopup } = props;
   const setSize = (sizeProp) => {
     switch (sizeProp) {
-      case 'small':
+      case "small":
         return classes.small;
-      case 'big':
+      case "big":
         return classes.big;
       default:
         return classes.medium;
@@ -30,13 +31,13 @@ function Case(props) {
           className={classes.figure}
           style={{
             backgroundImage: `url(${bg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            objectFit: 'cover',
-            display: 'block',
-            width: '100%',
-            height: '100%',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            objectFit: "cover",
+            display: "block",
+            width: "100%",
+            height: "100%",
           }}
         />
       </span>
@@ -64,8 +65,8 @@ Case.propTypes = {
 };
 
 Case.defaultProps = {
-  bg: '',
-  size: 'medium',
+  bg: "",
+  size: "medium",
   simple: false,
   openPopup: () => {},
 };

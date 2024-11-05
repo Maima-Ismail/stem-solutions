@@ -73,8 +73,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
           color: theme.palette.text.primary,
         },
         '& img': {
-          height: 32,
-          width: 32,
+          width: 70,
         }
       },
       [`& .${classes.bar}`]: {
@@ -141,8 +140,9 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     },
     '& img': {
       transition: 'all 0.3s ease-out',
-      width: 48,
-      height: 48,
+      width: 100,
+      objectFit: 'contain',
+      // height: 48,
       marginRight: theme.spacing(),
       [theme.breakpoints.only('md')]: {
         marginLeft: theme.spacing(2)

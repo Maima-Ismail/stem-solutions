@@ -12,7 +12,7 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
 import routeLink from 'public/text/link';
 import { useText } from 'theme/common';
-import logo from '~public/images/agency-logo.svg';
+import logo from '../../public/logo.png';
 import Link from '../Link';
 import Checkbox from './Checkbox';
 import useStyles from './form-style';
@@ -74,7 +74,7 @@ function Contact() {
       {!isDesktop && (
         <div className={cx(classes.logo, classes.logoHeader)}>
           <a href={curLang + routeLink.agency.home}>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" style={{width: '150px'}} />
           </a>
         </div>
       )}
