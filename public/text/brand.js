@@ -3,7 +3,7 @@ module.exports = {
     name: 'Agency',
     desc: 'Luxiren Agency - React Single Landing Page Template',
     prefix: 'luxiren',
-    footerText: 'Luxiren Agency - All Rights Reserved 2021',
+    footerText: 'Stem Solution Limited - All Rights Reserved 2024',
     logoText: 'Luxiren Agency',
     projectName: 'Agency Theme',
     url: 'luxireact.ux-maestro.com/agency',

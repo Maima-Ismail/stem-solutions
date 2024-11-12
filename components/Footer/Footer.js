@@ -88,7 +88,7 @@ function Footer(props) {
             className={classes.footerDesc}
             gutterBottom
           >
-            {t("agency-landing.footer_paragraph")}
+            Helping businesses grow with flexible, innovative digital solutions for today and tomorrow.
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React, { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -156,14 +157,11 @@ const projectData = {
 function CaseStudies() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const [photoIndex, setPhotoIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState("");
   const { classes, cx } = useStyles();
   const { classes: title } = useTitle();
-  const [selectedIndex, setSelectedIndex] = useState(
-    "NeuroPlan-The Brain Docs"
-  );
+  const [selectedIndex, setSelectedIndex] = useState("NeuroPlan-The Brain Docs");
   
   const [currentProjects, setCurrentProjects] = useState(
     projectData[selectedIndex]
@@ -286,20 +284,20 @@ function CaseStudies() {
       </Container>
 
       {/* Modal for PDF */}
-      <Dialog onClose={handleClose} open={open} fullWidth maxWidth="md">
-        <DialogContent>
+      <Dialog onClose={handleClose} open={open} fullScreen>
+        <DialogContent style={{height: '100%', display: 'flex', flexDirection: 'column' }}>
           <IconButton
             aria-label="close"
             onClick={handleClose}
-            style={{ position: "absolute", right: 8, top: 8 }}
+            style={{ position: "absolute", right: 16, top: 8, color: theme.palette.text.primary }}
           >
             <CloseIcon />
           </IconButton>
           <iframe
             src={pdfUrl}
             width="100%"
-            height="475px"
-            style={{ border: "none" }}
+            height="100%"
+            style={{ border: "none", flexGrow: 1, marginTop: 30 }}
             title="PDF Document"
           />
         </DialogContent>
