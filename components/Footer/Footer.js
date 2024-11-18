@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import React from "react";
 import PropTypes from "prop-types";
 import Container from "@mui/material/Container";
@@ -15,6 +14,7 @@ import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import { useTranslation } from "next-i18next";
 import logo from "public/logo.png";
+import whitelogo from "public/white-logo.png";
 import brand from "public/text/brand";
 import { useTextAlign } from "theme/common";
 import useStyles from "./footer-style";
@@ -70,13 +70,15 @@ function Footer(props) {
   const { classes } = useStyles();
   const { classes: align } = useTextAlign();
 
+  const currentLogo = theme.palette.mode === "dark" ? whitelogo : logo;
+
   return (
     <Container maxWidth="lg" component="footer" className={classes.footer}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
           <div className={classes.logo}>
             <img
-              src={logo}
+              src={currentLogo}
               alt="logo"
               style={{
                 width: "120px",

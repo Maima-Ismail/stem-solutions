@@ -5,6 +5,7 @@ const useStyles = makeStyles({ uniqId: 'case' })((theme) => ({
   root: {
     position: 'relative',
     zIndex: 10,
+    paddingTop: 0,
     background: theme.palette.mode === 'dark' ? darken(theme.palette.primary.light, 0.8) : lighten(theme.palette.primary.light, 0.8),
     '& nav': {
       [theme.breakpoints.down('md')]: {

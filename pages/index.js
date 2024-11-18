@@ -109,9 +109,6 @@ function Landing(props) {
           {!isTablet && (
             <PageNav />
           )}
-          {!isTablet && (
-            <Notification />
-          )}
         </Fragment>
       </MainContainer>
     </React.Fragment>

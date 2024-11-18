@@ -13,6 +13,7 @@ import { useTranslation } from "next-i18next";
 import Settings from "./Settings";
 import MobileMenu from "./MobileMenu";
 import logo from "public/logo.png";
+import whitelogo from "public/white-logo.png";
 import brand from "public/text/brand";
 import Link from "../Link";
 import routeLink from "public/text/link";
@@ -40,6 +41,8 @@ function Header(props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  const currentLogo = theme.palette.mode === "dark" ? whitelogo : logo;
 
   // Translation
   const { t } = useTranslation("common");
@@ -110,7 +113,7 @@ function Header(props) {
               )}
               <div className={classes.logo}>
                 <Link href={routeLink.agency.home}>
-                  <img src={logo} alt="logo" />
+                  <img src={currentLogo} alt="logo" />
                 </Link>
               </div>
             </nav>
