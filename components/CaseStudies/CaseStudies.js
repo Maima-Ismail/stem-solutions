@@ -9,13 +9,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import CaseCard from "../Cards/Case";
-import useStyles from "./case-study-style";
-import useTitle from "../Title/title-style";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import CaseCard from "../Cards/Case";
+import useStyles from "./case-study-style";
+import useTitle from "../Title/title-style";
 
 const categories = [
   "NeuroPlan-The Brain Docs",

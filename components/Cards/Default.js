@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
+import Link from "next/link";
 import useStyles from "./cards-style";
 
 function Services(props) {
@@ -17,10 +18,12 @@ function Services(props) {
 
   const { img, title, desc, button } = props;
 
+  const serviceSlug = title.toLowerCase().replace(/\s+/g, "-");
+
   return (
     <Paper className={classes.defaultCard}>
       <figure>
-        <img src={img} alt="img" />
+        <img src={img} alt={title} />
       </figure>
       <div className={classes.text}>
         <Typography display="block" variant="h6">
@@ -30,9 +33,11 @@ function Services(props) {
           {desc}
         </Typography>
       </div>
-      <Button variant="contained" color="primary" className={classes.button}>
-        {button}
-      </Button>
+      <Link href={`/services/${serviceSlug}`} passHref>
+        <Button variant="contained" color="primary" className={classes.button}>
+          {button}
+        </Button>
+      </Link>
     </Paper>
   );
 }
