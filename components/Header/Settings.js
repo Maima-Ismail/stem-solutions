@@ -120,16 +120,6 @@ function Settings(props) {
             </ListSubheader>
           )}
         >
-          {i18nextConfig.i18n.locales.map((locale) => (
-            <LanguageSwitch
-              ssg={i18nextConfig.ssg}
-              locale={locale}
-              key={locale}
-              checked={locale === currentLocale}
-              toggleDir={props.toggleDir}
-              closePopup={handleClose}
-            />
-          ))}
         </List>
       </Popover>
     </div>

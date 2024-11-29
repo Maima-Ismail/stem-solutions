@@ -1,16 +1,16 @@
-import React from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import { useTranslation } from 'next-i18next';
-import { useText, useTextAlign } from 'theme/common';
-import AboutImage from '../../public/images/banner.jpg';
-import TitleDeco from '../Title/WithDecoration';
-import useStyles from './about-style';
-import useTitle from '../Title/title-style';
-import Counter from '../Counter';
+import React from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { useTranslation } from "next-i18next";
+import { useText, useTextAlign } from "theme/common";
+import AboutImage from "../../public/images/banner.jpg";
+import TitleDeco from "../Title/WithDecoration";
+import useStyles from "./about-style";
+import useTitle from "../Title/title-style";
+import Counter from "../Counter";
 
 function About() {
   const { classes: text } = useText();
@@ -18,10 +18,11 @@ function About() {
 
   // Media Query
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   // Translation function
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   const { classes, cx } = useStyles();
   const { classes: title } = useTitle();
@@ -31,12 +32,42 @@ function About() {
         <Grid container spacing={isDesktop ? 6 : 2}>
           <Grid item md={5} xs={12}>
             <div className={align.textCenter}>
-              <TitleDeco bg={AboutImage} text={t('agency-landing.about_title')} />
+              {isSmallScreen && (
+                <TitleDeco
+                  bg={AboutImage}
+                  text={t("agency-landing.about_title")}
+                />
+              )}
+              {isSmallScreen ? (
+                <></>
+              ) : (
+                <div style={{ position: "relative", display: "inline-block" }}>
+                  <img style={{ width: "350px" }} src="/blob.png" alt="Blob" />
+                  <Typography
+                    variant="h3"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      color: "#fff",
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      fontFamily: "Roboto, sans-serif",
+                    }}
+                  >
+                    About Us
+                  </Typography>
+                </div>
+              )}
             </div>
           </Grid>
           <Grid item md={7} xs={12}>
-            <Typography className={cx(title.default, text.subtitle)} variant="h4">
-              {t('agency-landing.about_subtitle')}
+            <Typography
+              className={cx(title.default, text.subtitle)}
+              variant="h4"
+            >
+              {t("agency-landing.about_subtitle")}
             </Typography>
             <Counter />
           </Grid>

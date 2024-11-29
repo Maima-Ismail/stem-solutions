@@ -74,7 +74,7 @@ function Footer(props) {
 
   return (
     <Container maxWidth="lg" component="footer" className={classes.footer}>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} justifyContent={'space-between'}>
         <Grid item xs={12} md={3}>
           <div className={classes.logo}>
             <img
@@ -94,7 +94,7 @@ function Footer(props) {
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <Grid container spacing={4} justify-content="space-evenly">
             {footers.map((footer) => (
               <Grid
@@ -168,7 +168,7 @@ function Footer(props) {
               </Grid>
             ))}
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={3}>
           <div className={classes.socmed}>
             <IconButton aria-label="FB" className={classes.margin} size="small">
@@ -184,7 +184,6 @@ function Footer(props) {
               <i className="ion-logo-linkedin" />
             </IconButton>
           </div>
-          <SelectLang toggleDir={toggleDir} />
         </Grid>
       </Grid>
       {isMobile && (

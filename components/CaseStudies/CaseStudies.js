@@ -18,21 +18,21 @@ import useStyles from "./case-study-style";
 import useTitle from "../Title/title-style";
 
 const categories = [
-  "NeuroPlan-The Brain Docs",
-  "The Zensory-Wellness & Mindfulness",
+  "NeuroPlan",
+  "Zensory-Wellness",
   "Xperience",
-  "Centrefy-Healthcare Technology",
+  "Centrefy-Healthcare",
 ];
 
 const pdfLinks = {
-  "Centrefy-Healthcare Technology": "/portfolio/Centrefy.pdf",
-  "The Zensory-Wellness & Mindfulness": "/portfolio/Zansory.pdf",
-  "NeuroPlan-The Brain Docs": "/portfolio/NeuroPlan.pdf",
+  "Centrefy-Healthcare": "/portfolio/Centrefy.pdf",
+  "Zensory-Wellness": "/portfolio/Zansory.pdf",
+  NeuroPlan: "/portfolio/NeuroPlan.pdf",
   Xperience: "/portfolio/Xperience.pdf",
 };
 
 const projectData = {
-  "Centrefy-Healthcare Technology": [
+  "Centrefy-Healthcare": [
     {
       bg: "/images/projects/project11.png",
       size: "small",
@@ -62,7 +62,7 @@ const projectData = {
       size: "big",
     },
   ],
-  "The Zensory-Wellness & Mindfulness": [
+  "Zensory-Wellness": [
     {
       bg: "/images/projects/project21.png",
       size: "small",
@@ -92,7 +92,7 @@ const projectData = {
       size: "big",
     },
   ],
-  "NeuroPlan-The Brain Docs": [
+  NeuroPlan: [
     {
       bg: "/images/projects/project31.png",
       size: "small",
@@ -161,8 +161,8 @@ function CaseStudies() {
   const [pdfUrl, setPdfUrl] = useState("");
   const { classes, cx } = useStyles();
   const { classes: title } = useTitle();
-  const [selectedIndex, setSelectedIndex] = useState("NeuroPlan-The Brain Docs");
-  
+  const [selectedIndex, setSelectedIndex] = useState("NeuroPlan");
+
   const [currentProjects, setCurrentProjects] = useState(
     projectData[selectedIndex]
   );
@@ -285,11 +285,18 @@ function CaseStudies() {
 
       {/* Modal for PDF */}
       <Dialog onClose={handleClose} open={open} fullScreen>
-        <DialogContent style={{height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <DialogContent
+          style={{ height: "100%", display: "flex", flexDirection: "column" }}
+        >
           <IconButton
             aria-label="close"
             onClick={handleClose}
-            style={{ position: "absolute", right: 16, top: 8, color: theme.palette.text.primary }}
+            style={{
+              position: "absolute",
+              right: 16,
+              top: 8,
+              color: theme.palette.text.primary,
+            }}
           >
             <CloseIcon />
           </IconButton>
