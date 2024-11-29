@@ -33,29 +33,19 @@ const servicesList = [
     img: Agency1,
   },
   {
-    title: "UI/UX Design",
+    title: "UI UX Design",
     desc: "Designing intuitive interfaces that enhance user experience and reflect your brand.",
     img: Agency3,
   },
   {
     title: "Startup Solution",
-    desc: "Tailored services to accelerate startup growth, from MVP development to efficient launch and scaling.",
+    desc: "Tailored services to accelerate startup growth, from MVP development to efficient launch.",
     img: Agency7,
   },
   {
     title: "Custom Software Development",
     desc: "Delivering bespoke software solutions tailored to your specific business needs.",
     img: Agency4,
-  },
-  {
-    title: "Marketing",
-    desc: "Creating impactful marketing campaigns that elevate your brand and drive business growth.",
-    img: Agency6,
-  },
-  {
-    title: "SEO",
-    desc: "Boosting your online visibility and driving traffic with expert SEO strategies.",
-    img: Agency5,
   },
 ];
 

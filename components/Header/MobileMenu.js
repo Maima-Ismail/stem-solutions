@@ -26,15 +26,17 @@ function MobileMenu(props) {
       <div className={cx(classes.menu, open && classes.menuOpen)}>
         <List component="nav">
           {navMenu.map((item, index) => (
-            <ListItem
-              button
-              component="a"
-              href={`#${item}`}
-              key={index.toString()}
-              style={{ animationDuration: index * 0.15 + 's' }}
-            >
-              <ListItemText primary={t('agency-landing.header_' + item)} className={classes.menuList} />
-            </ListItem>
+            index !== 2 && ( // Condition to hide the menu item if index equals 2
+              <ListItem
+                button
+                component="a"
+                href={`#${item}`}
+                key={index.toString()}
+                style={{ animationDuration: index * 0.15 + 's' }}
+              >
+                <ListItemText primary={t('agency-landing.header_' + item)} className={classes.menuList} />
+              </ListItem>
+            )
           ))}
           <ListItem
             button
@@ -45,6 +47,7 @@ function MobileMenu(props) {
             <ListItemText primary={t('agency-landing.header_contact')} className={classes.menuList} />
           </ListItem>
         </List>
+
       </div>
     </div>
   );
